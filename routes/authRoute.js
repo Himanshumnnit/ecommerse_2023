@@ -1,6 +1,7 @@
 import express from "express";
 import JWT from "jsonwebtoken";
 import {
+  forgotPasswordController,
   loginController,
   registerController,
   testController,
@@ -19,6 +20,9 @@ router.post("/login", loginController);
 
 //test
 router.get("/test", requireSignIn, isAdmin, testController);
+
+//forget password
+router.post("/forgot-password", forgotPasswordController);
 
 //user protected route
 router.get("/user-auth", requireSignIn, (req, res) => {
