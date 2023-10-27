@@ -2,7 +2,7 @@
   "name": "ecommerse2023",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "e commerce ",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -24,5 +24,13 @@
     "mongoose": "^7.6.3",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinesh2325/ecommerce_2023.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dinesh2325/ecommerce_2023/issues"
+  },
+  "homepage": "https://github.com/dinesh2325/ecommerce_2023#readme"
 }
