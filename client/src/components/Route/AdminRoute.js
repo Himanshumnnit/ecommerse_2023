@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 import axios from "axios";
 import Spinner from "../Spinner";
 
+//this page is also rendered when /dashboard is called (same as private js)
+// this checks two things using backend 1> requireignin 2>isadmin 
 export default function AdminRoute() {
   const [ok, setOk] = useState(false);
   const [auth, setAuth] = useAuth();
