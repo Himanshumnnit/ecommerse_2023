@@ -1,29 +1,31 @@
 //const can be replace with import in es6  (just use type:module in package.json)
 import express from "express";
-import dotenv, { config } from 'dotenv';
+import dotenv, { config } from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
-import authRoutes from './routes/authRoute.js'
+import authRoutes from "./routes/authRoute.js";
+import cors from "cors";
 
-const app=express();
+const app = express();
 
 // config database
 connectDB();
 
-// middleware 
-app.use(express.json())  //for handling json req
-app.use(morgan('dev'));
-app.use('/api/v1/auth',authRoutes);
+// middleware
+app.use(cors());
+app.use(express.json()); //for handling json req
+app.use(morgan("dev"));
+app.use("/api/v1/auth", authRoutes);
 
-dotenv.config({path:'./.env'})
+dotenv.config({ path: "./.env" });
 
-app.get("/",(req,res)=>{
-   res.send("hello in my app")
-})
+app.get("/", (req, res) => {
+  res.send("hello in my app");
+});
 
-const PORT= process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 //server listening
-app.listen(PORT,(req,res)=>{
-    console.log(`server is running on port ${PORT}`);
-})
+app.listen(PORT, (req, res) => {
+  console.log(`server is running on port ${PORT}`);
+});
