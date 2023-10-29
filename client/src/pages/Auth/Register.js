@@ -14,6 +14,7 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
+  const [answer, setAnswer] = useState("");
 
   // form function
   const handleSubmit = async (e) => {
@@ -26,6 +27,7 @@ const Register = () => {
         phone,
         address,
         answer,
+
       });
 
       if (res && res.data.success) {
@@ -114,6 +116,19 @@ const Register = () => {
                 required
               />
             </div>
+
+            <div className="mb-3">
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                className="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter Your Fav Sport"
+                required
+              />
+            </div>
+
 
             <div className="mb-3">
               <input

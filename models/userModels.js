@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     role: {
       type: Number,
       default: 0,
@@ -35,5 +36,6 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
 
 export default mongoose.model("users", userSchema);
