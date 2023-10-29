@@ -115,6 +115,18 @@ const Register = () => {
               />
             </div>
 
+            <div className="mb-3">
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                className="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter Your Fav Sport"
+                required
+              />
+            </div>
+
             <button type="submit" className="btn btn-primary">
               REGISTER
             </button>

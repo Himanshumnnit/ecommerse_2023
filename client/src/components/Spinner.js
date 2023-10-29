@@ -5,6 +5,9 @@ const Spinner = ({ path = "login" }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  //if spinner is called this will spin for certain time and render to login page ,
+  // but after login it will bring back to the page from whrere it came to login(history page)
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((prevValue) => --prevValue);
