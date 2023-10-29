@@ -33,12 +33,11 @@ export const registerController = async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    res.status(500),
-      send({
-        success: false,
-        message: "Error in registration",
-        error,
-      });
+    res.status(500).send({
+      success: false,
+      message: "Error in registration",
+      error,
+    });
   }
 };
 
@@ -94,6 +93,8 @@ export const loginController = async (req, res) => {
     });
   }
 };
+
+
 
 
 //forgotPasswordController

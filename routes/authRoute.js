@@ -15,6 +15,9 @@ const router = express.Router();
 //register
 router.post("/register", registerController);
 
+//forget password
+router.post("/forgot-password", forgotPasswordController);
+
 //login
 router.post("/login", loginController);
 
