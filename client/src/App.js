@@ -17,6 +17,7 @@ import Users from "./pages/Admin/Users";
 import Orders from "./pages/user/Orders";
 import Profile from "./pages/user/Profile";
 import ForgotPassword from "./pages/Auth/ForgotPassword.js";
+import Products from "./pages/Admin/Product";
 
 function App() {
   return (
@@ -36,11 +37,12 @@ function App() {
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/create-category" element={<CreateCatogory />} />
           <Route path="admin/create-product" element={<CreateProduct />} />
+          <Route path="admin/products" element={<Products />} />
           <Route path="admin/users" element={<Users />} />
         </Route>
 
         <Route path="/about" element={<About />} />
-        <Route path="/forgot-password" element={<ForgotPassword/>} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/*" element={<Pagenotfound />} />
