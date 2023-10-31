@@ -22,6 +22,8 @@ const Register = () => {
         email,
         password,
       });
+      //checking email and password
+      //if ok then fill the auth with user data and token 
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
