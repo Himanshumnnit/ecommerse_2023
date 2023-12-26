@@ -19,13 +19,16 @@ import Profile from "./pages/user/Profile";
 import ForgotPassword from "./pages/Auth/ForgotPassword.js";
 import Products from "./pages/Admin/Product";
 import UpdateProduct from "./pages/Admin/UpdateProduct";
+import Search from "./pages/Search.js";
+import ProductDetails from "./pages/ProductDetails.js";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Homepage />} />
-
+        <Route path="/search" element={<Search />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
         {/* dashboard for user  */}
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
