@@ -1,4 +1,5 @@
 import productModel from "../models/productModel.js";
+import categoryModel from "../models/categoryModel.js"
 import fs from "fs";
 import slugify from "slugify";
 
@@ -293,7 +294,6 @@ export const realtedProductController = async (req, res) => {
 };
 
 
-
 // get prdocyst by catgory
 export const productCategoryController = async (req, res) => {
   try {
@@ -313,3 +313,5 @@ export const productCategoryController = async (req, res) => {
     });
   }
 };
+
+
