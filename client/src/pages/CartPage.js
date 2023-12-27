@@ -37,7 +37,7 @@ const CartPage = () => {
   };
   return (
     <Layout>
-      <div className="container">
+      {/* <div className="container">
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
@@ -122,7 +122,7 @@ const CartPage = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 };
