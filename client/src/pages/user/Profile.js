@@ -38,6 +38,7 @@ const Profile = () => {
         toast.error(data?.error);
       } else {
         setAuth({ ...auth, user: data?.updatedUser });
+
         let ls = localStorage.getItem("auth");
         ls = JSON.parse(ls);
         ls.user = data.updatedUser;
