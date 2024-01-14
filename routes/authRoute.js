@@ -2,6 +2,7 @@ import express from "express";
 import JWT from "jsonwebtoken";
 import {
   forgotPasswordController,
+  getOrdersController,
   loginController,
   registerController,
   testController,
@@ -40,5 +41,8 @@ router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
 
 //update profile
 router.put("/profile", requireSignIn, updateProfileController);
+
+//orders
+router.get("/orders", requireSignIn, getOrdersController);
 
 export default router;
