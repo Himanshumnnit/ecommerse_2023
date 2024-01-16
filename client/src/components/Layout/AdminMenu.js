@@ -4,8 +4,8 @@ const AdminMenu = () => {
   return (
     <>
       <div className="text-center">
-        <div className="list-group dashboard-menu">
-          <h4>Admin Panel</h4>
+        <div className="list-group dashboard-menu " style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px', height:"50vh"}}>
+          <h4 style={{border: '1px solid #ccc', padding: '10px', borderRadius: '5px'}}>Admin Panel</h4>
           <NavLink
             to="/dashboard/admin/create-category"
             className="list-group-item list-group-item-action"

@@ -1,5 +1,10 @@
 /* ===================================
 ========= register page  */
+body{
+  /* background: rgb(2,0,36); */
+/* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(17,44,44,1) 53%);  */
+background: rgb(236,236,236)
+}
 .form-container {
     margin-top: 60px;
     display: flex;
