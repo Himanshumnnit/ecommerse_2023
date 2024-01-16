@@ -48,11 +48,11 @@ const AdminOrders = () => {
         <div className="col-md-3">
           <AdminMenu />
         </div>
-        <div className="col-md-9">
-          <h1 className="text-center">All Orders</h1>
+        <div className="col-md-9" style={{ marginTop:"20px"}}>
+          <h1 className="text-center" style={{border: '1px solid #ccc', padding: '1px', borderRadius: '5px', width:"500px", textAlign:"center"}}>All Orders</h1>
           {orders?.map((o, i) => {
             return (
-              <div className="border shadow">
+              <div className="container" style={{border:"2px", width:"1100px"}}>
                 <table className="table">
                   <thead>
                     <tr>
