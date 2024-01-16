@@ -19,11 +19,9 @@ const Layout = ({ children, title, description, keywords, author }) => {
 
         {children}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
-
-
 
 export default Layout;
