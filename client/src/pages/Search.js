@@ -7,7 +7,7 @@ const Search = () => {
     <Layout title={"Search results"}>
       <div className="container">
         <div className="text-center">
-          <h1>Search Resuts</h1>
+          <h1>Search Results</h1>
           <h6>
             {values?.results.length < 1
               ? "No Products Found"
@@ -15,7 +15,7 @@ const Search = () => {
           </h6>
           <div className="d-flex flex-wrap mt-4">
             {values?.results.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }}>
+              <div className="card m-2" style={{ width: "18rem", color: "rgb(236,236,236)" }}>
                 <img
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"

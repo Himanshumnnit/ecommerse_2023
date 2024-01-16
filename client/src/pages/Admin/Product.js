@@ -28,9 +28,9 @@ const Products = () => {
         <div className="col-md-3">
           <AdminMenu />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-9">
           <h1 className="text-center">All Products List</h1>
-          <div className="d-flex">
+          <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <Link
                 key={p._id}
@@ -42,6 +42,7 @@ const Products = () => {
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
+                    style={{ height: "200px", objectFit: "cover", alignContent: "center"}}
                   />
                   <div className="card-body">
                     <h5 className="card-title">{p.name}</h5>

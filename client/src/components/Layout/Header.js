@@ -6,6 +6,7 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
+import "./../../styles/Header.css"
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -22,7 +23,7 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+     <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -39,22 +40,24 @@ const Header = () => {
             <Link to="/" className="navbar-brand">
               🛒 Ecommerce App
             </Link>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <SearchInput />
+            <SearchInput />
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0" style={{marginRight:"40px"}}>
+              
               <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
+                <NavLink to="/" className="nav-link " style={{marginRight:"20px", marginLeft:"20px", color:"white", textDecoration:"bold"}}>
                   Home
                 </NavLink>
               </li>
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
+                  style={{marginRight:"20px",color:"white", textDecoration:"bold"}}
                   to={"/categories"}
                   data-bs-toggle="dropdown"
                 >
                   Categories
                 </Link>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu" style={{marginRight:"20px"}}>
                   <li>
                     <Link className="dropdown-item" to={"/categories"}>
                       All Categories
@@ -64,6 +67,7 @@ const Header = () => {
                     <li>
                       <Link
                         className="dropdown-item"
+                       
                         to={`/category/${c.slug}`}
                       >
                         {c.name}
@@ -76,12 +80,12 @@ const Header = () => {
               {!auth?.user ? (
                 <>
                   <li className="nav-item">
-                    <NavLink to="/register" className="nav-link">
+                    <NavLink to="/register" className="nav-link" style={{marginRight:"20px"}} >
                       Register
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink to="/login" className="nav-link">
+                    <NavLink to="/login" className="nav-link" style={{marginRight:"20px"}}>
                       Login
                     </NavLink>
                   </li>
@@ -94,7 +98,7 @@ const Header = () => {
                       href="#"
                       role="button"
                       data-bs-toggle="dropdown"
-                      style={{ border: "none" }}
+                      style={{ border: "none" ,color:"white", textDecoration:"bold"}}
                     >
                       {auth?.user?.name}
                     </NavLink>
@@ -124,8 +128,11 @@ const Header = () => {
               )}
               <li className="nav-item">
                 <Badge count={cart?.length} showZero>
-                  <NavLink to="/cart" className="nav-link">
-                    Cart
+                  <NavLink to="/cart" className="cart" style={{marginLeft:"20px", 
+                  border: "none" ,color:"white", textDecoration:"none", fontSize:"2rem"
+                  
+                }}   >
+                      🛒
                   </NavLink>
                 </Badge>
               </li>

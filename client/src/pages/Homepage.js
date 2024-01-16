@@ -91,7 +91,7 @@ const HomePage = () => {
     if (checked.length || radio.length) filterProduct();
   }, [checked, radio]);
 
-  //get filterd product
+  //get filtered product
   const filterProduct = async () => {
     try {
       const { data } = await axios.post("/api/v1/product/product-filters", {
@@ -106,9 +106,9 @@ const HomePage = () => {
   return (
     <Layout title={"ALl Products - Best offers "}>
       <div className="container-fluid row mt-3">
-        <div className="col-md-2">
-          <h4 className="text-center">Filter By Category</h4>
-          <div className="d-flex flex-column">
+        <div className="col" style={{marginTop:"40px"}} >
+          <h4 className="text-center " style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '10px', textDecoration:"underline" }}>Filter By Category</h4>
+          <div className="d-flex flex-column" style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
             {categories?.map((c) => (
               <Checkbox
                 key={c._id}
@@ -119,8 +119,8 @@ const HomePage = () => {
             ))}
           </div>
           {/* price filter */}
-          <h4 className="text-center mt-4">Filter By Price</h4>
-          <div className="d-flex flex-column">
+          <h4 className="text-center mt-4" style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '10px', textDecoration:"underline" }}>Filter By Price</h4>
+          <div className="d-flex flex-column" style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
                 <div key={p._id}>
@@ -131,7 +131,7 @@ const HomePage = () => {
           </div>
           <div className="d-flex flex-column">
             <button
-              className="btn btn-danger"
+              className="btn btn- btn-outline-danger mt-3"
               onClick={() => window.location.reload()}
             >
               RESET FILTERS
@@ -147,8 +147,10 @@ const HomePage = () => {
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
+                  style={{ height: "200px", objectFit: "cover", alignContent: "center"}}
+
                 />
-                <div className="card-body">
+                <div className="card-body" style={{ height: "200px"}}>
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">
                     {p.description.substring(0, 30)}...
