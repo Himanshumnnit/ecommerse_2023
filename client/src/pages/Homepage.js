@@ -6,9 +6,11 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+import { useAuth } from "../../src/context/auth"; //context for user and token
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
+  const [auth, setAuth] = useAuth();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -106,9 +108,26 @@ const HomePage = () => {
   return (
     <Layout title={"ALl Products - Best offers "}>
       <div className="container-fluid row mt-3">
-        <div className="col" style={{marginTop:"40px"}} >
-          <h4 className="text-center " style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '10px', textDecoration:"underline" }}>Filter By Category</h4>
-          <div className="d-flex flex-column" style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+        <div className="col" style={{ marginTop: "40px" }}>
+          <h4
+            className="text-center "
+            style={{
+              border: "2px solid #ccc",
+              padding: "10px",
+              borderRadius: "10px",
+              textDecoration: "underline",
+            }}
+          >
+            Filter By Category
+          </h4>
+          <div
+            className="d-flex flex-column"
+            style={{
+              border: "1px solid #ccc",
+              padding: "10px",
+              borderRadius: "5px",
+            }}
+          >
             {categories?.map((c) => (
               <Checkbox
                 key={c._id}
@@ -119,8 +138,25 @@ const HomePage = () => {
             ))}
           </div>
           {/* price filter */}
-          <h4 className="text-center mt-4" style={{ border: '2px solid #ccc', padding: '10px', borderRadius: '10px', textDecoration:"underline" }}>Filter By Price</h4>
-          <div className="d-flex flex-column" style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
+          <h4
+            className="text-center mt-4"
+            style={{
+              border: "2px solid #ccc",
+              padding: "10px",
+              borderRadius: "10px",
+              textDecoration: "underline",
+            }}
+          >
+            Filter By Price
+          </h4>
+          <div
+            className="d-flex flex-column"
+            style={{
+              border: "1px solid #ccc",
+              padding: "10px",
+              borderRadius: "5px",
+            }}
+          >
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
                 <div key={p._id}>
@@ -147,34 +183,42 @@ const HomePage = () => {
                   src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
-                  style={{ height: "200px", objectFit: "cover", alignContent: "center"}}
-
+                  style={{
+                    height: "200px",
+                    objectFit: "cover",
+                    alignContent: "center",
+                  }}
                 />
-                <div className="card-body" style={{ height: "200px"}}>
+                <div className="card-body" style={{ height: "200px" }}>
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">
                     {p.description.substring(0, 30)}...
                   </p>
                   <p className="card-text"> $ {p.price}</p>
-                  <button
-                    className="btn btn-primary ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More Details
-                  </button>
-                  <button
-                    className="btn btn-secondary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }}
-                  >
-                    ADD TO CART
-                  </button>
+                  {auth && auth?.user?.role == 0 && (
+                    // Show buttons only if the user's role is 0 (assuming 0 is the role for regular users)
+                    <>
+                      <button
+                        className="btn btn-primary ms-1"
+                        onClick={() => navigate(`/product/${p.slug}`)}
+                      >
+                        More Details
+                      </button>
+                      <button
+                        className="btn btn-secondary ms-1"
+                        onClick={() => {
+                          setCart([...cart, p]);
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify([...cart, p])
+                          );
+                          toast.success("Item Added to cart");
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
