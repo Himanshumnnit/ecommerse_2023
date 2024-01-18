@@ -179,16 +179,6 @@ const Register = () => {
               placeholder="Enter Your Password"
               required
             />
-            {/* <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => {
-                navigate("/forgot-password");
-              }}
-            >
-              Forgot password
-            </button> */}
-
             <button type="submit" className="btn btn-primary">
               Login
             </button>

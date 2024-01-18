@@ -18,7 +18,7 @@
 
 .login {
   overflow: hidden;
-  background-color: white;
+  background-color: rgb(235, 223, 244);
   padding: 40px 30px 30px 30px;
   border-radius: 10px;
   position: absolute;
@@ -46,14 +46,14 @@
 .login::before {
   left: 40%;
   bottom: -130%;
-  background-color: rgba(69, 105, 144, 0.15);
+  background-color: rgba(106, 75, 152, 0.15);
   animation: wawes 6s infinite linear;
 }
 
 .login::after {
   left: 35%;
   bottom: -90%;
-  background-color: rgba(2, 128, 144, 0.2);
+  background-color: rgba(17, 205, 230, 0.2);
   animation: wawes 7s infinite;
 }
 
