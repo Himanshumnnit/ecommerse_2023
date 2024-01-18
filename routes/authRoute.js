@@ -4,6 +4,7 @@ import {
   forgotPasswordController,
   getAllOrdersController,
   getOrdersController,
+  getallUserController,
   loginController,
   orderStatusController,
   registerController,
@@ -58,5 +59,6 @@ router.put(
   orderStatusController
 );
 
-export default router;
+router.get("/all-users", getallUserController);
 
+export default router;

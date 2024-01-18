@@ -170,8 +170,6 @@ export const updateProfileController = async (req, res) => {
   }
 };
 
-
-
 //orders
 export const getOrdersController = async (req, res) => {
   try {
@@ -189,7 +187,6 @@ export const getOrdersController = async (req, res) => {
     });
   }
 };
-
 
 // all orders
 export const getAllOrdersController = async (req, res) => {
@@ -226,6 +223,21 @@ export const orderStatusController = async (req, res) => {
     res.status(500).send({
       success: false,
       message: "Error While Updateing Order",
+      error,
+    });
+  }
+};
+
+//all user
+export const getallUserController = async (req, res) => {
+  try {
+    const users = await userModels.find({});
+    res.json(users);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error While finding user",
       error,
     });
   }
