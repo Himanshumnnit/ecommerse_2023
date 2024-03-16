@@ -7,6 +7,8 @@ import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import { useAuth } from "../../src/context/auth"; //context for user and token
+import chatbotImage from "../pages/chip.png";
+import "../pages/chat.css";
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
@@ -237,6 +239,11 @@ const HomePage = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className="chatbot-container">
+        <a href="/chat">
+          <img src={chatbotImage} alt="Chatbot" className="chatbot-image" />
+        </a>
       </div>
     </Layout>
   );
