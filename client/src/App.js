@@ -25,6 +25,7 @@ import Categories from "./pages/Categories.js";
 import CategoryProduct from "./pages/CategoryProduct.js";
 import CartPage from "./pages/CartPage.js";
 import AdminOrders from "./pages/Admin/AdminOrders.js";
+import Chat from "./chat.js";
 
 function App() {
   return (
@@ -32,10 +33,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:slug" element={<CategoryProduct />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
+
         {/* dashboard for user  */}
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />

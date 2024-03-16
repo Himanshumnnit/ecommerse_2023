@@ -11,6 +11,8 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
+
+  
   //initalp details
   useEffect(() => {
     if (params?.slug) getProduct();
