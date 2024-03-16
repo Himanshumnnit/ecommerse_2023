@@ -10,7 +10,7 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const API_KEY = "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";
+const API_KEY = process.env.CHATGPT_KEY;
 
 const systemMessage = {
   role: "system",
