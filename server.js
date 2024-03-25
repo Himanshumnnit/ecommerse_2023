@@ -3,30 +3,24 @@ import express from "express";
 import dotenv, { config } from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
-
+import path from "path";
 import authRoutes from "./routes/authRoute.js";
 import productRoutes from "./routes/productRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
-import cors from "cors"
+import cors from "cors";
+
 const app = express();
-
-
-
-
-
-
 
 // config database
 connectDB();
 
-
 // middleware
+app.use(express.static("public"));
 app.use(express.json()); //for handling json req
 app.use(morgan("dev"));
+
 dotenv.config({ path: "./.env" });
 app.use(cors());
- 
-
 
 //routes
 app.use("/api/v1/auth", authRoutes);

@@ -3,6 +3,7 @@ import userModels from "../models/userModels.js";
 import { comparePassword, hashpassword } from "../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
 import orderModel from "../models/orderModel.js";
+import bulkModels from "../models/bulkModels.js";
 
 //user registration
 export const registerController = async (req, res) => {
@@ -238,6 +239,42 @@ export const getallUserController = async (req, res) => {
     res.status(500).send({
       success: false,
       message: "Error While finding user",
+      error,
+    });
+  }
+};
+
+// all bulk orders
+export const getAllbulkOrdersController = async (req, res) => {
+  try {
+    const orders = await bulkModels.find({}).sort({ createdAt: "-1" });
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error WHile Geting Orders",
+      error,
+    });
+  }
+};
+
+//order status
+export const bulkorderStatusController = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { status } = req.body;
+    const orders = await bulkModels.findByIdAndUpdate(
+      orderId,
+      { status },
+      { new: true }
+    );
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error While Updateing Order",
       error,
     });
   }

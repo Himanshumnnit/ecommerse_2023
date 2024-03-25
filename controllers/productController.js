@@ -5,6 +5,7 @@ import slugify from "slugify";
 import orderModel from "../models/orderModel.js";
 import braintree from "braintree";
 import dotenv from "dotenv";
+import bulkModels from "../models/bulkModels.js";
 
 dotenv.config();
 
@@ -372,5 +373,34 @@ export const brainTreePaymentController = async (req, res) => {
     );
   } catch (error) {
     console.log(error);
+  }
+};
+
+// Define a controller function to handle the POST request
+export const bulkorderController = async (req, res) => {
+  try {
+    const { name, contactNumber, email, address, size, quantity, prize } =
+      req.body;
+
+    // Create a new product instance
+    const newProduct = new bulkModels({
+      name,
+      contactNumber,
+      email,
+      address,
+      size,
+      quantity,
+      prize,
+      tshirtimage: req.files["tshirtimage"][0].filename, // Get the path of the uploaded tshirt image
+      photo: req.files["photo"][0].filename, // Get the path of the uploaded photo
+    });
+
+    // Save the product to the database
+    await newProduct.save();
+
+    res.status(201).json({ message: "Product created successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };

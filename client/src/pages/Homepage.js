@@ -7,7 +7,8 @@ import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import { useAuth } from "../../src/context/auth"; //context for user and token
-import chatbotImage from "../pages/chip.png";
+import chatbotImage from "../pages/chat-bot.gif";
+import trolley from "../pages/trolley.gif";
 import "../pages/chat.css";
 const HomePage = () => {
   const navigate = useNavigate();
@@ -240,10 +241,30 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
       <div className="chatbot-container">
+        {auth?.user?.role === 0 && (
+          <div>
+            <a href="/dashboard/user/tshirt">
+              <img
+                style={{ width: "80px", height: "80px" }}
+                src={trolley}
+                alt="Shopping"
+                className="trolley-image"
+              />
+            </a>
+            <p>Order Here?</p>
+          </div>
+        )}
         <a href="/chat">
-          <img src={chatbotImage} alt="Chatbot" className="chatbot-image" />
+          <img
+            style={{ width: "80px", height: "80px" }}
+            src={chatbotImage}
+            alt="Chatbot"
+            className="chatbot-image"
+          />
         </a>
+        <p>Need Help?</p>
       </div>
     </Layout>
   );

@@ -26,6 +26,10 @@ import CategoryProduct from "./pages/CategoryProduct.js";
 import CartPage from "./pages/CartPage.js";
 import AdminOrders from "./pages/Admin/AdminOrders.js";
 import Chat from "./chat.js";
+import Tshirt from "./tshirt.js";
+import Placeorder from "./pages/Placeorder.js";
+import AdminBulkorder from "./pages/Admin/AdminBulkorder.js";
+import CustmizedOrder from "./pages/user/CustmizedOrder.js";
 
 function App() {
   return (
@@ -43,6 +47,9 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/orders" element={<Orders />} />
+          <Route path="user/custmizeorders" element={<CustmizedOrder />} />
+          <Route path="user/tshirt" element={<Tshirt />} />
+          <Route path="user/placeorder" element={<Placeorder />} />
           <Route path="user/profile" element={<Profile />} />
         </Route>
 
@@ -55,6 +62,7 @@ function App() {
           <Route path="admin/products" element={<Products />} />
           <Route path="admin/users" element={<Users />} />
           <Route path="admin/orders" element={<AdminOrders />} />
+          <Route path="admin/bulkorders" element={<AdminBulkorder />} />
         </Route>
 
         <Route path="/about" element={<About />} />

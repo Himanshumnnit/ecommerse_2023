@@ -18,6 +18,12 @@ const UserMenu = () => {
           >
             Orders
           </NavLink>
+          <NavLink
+            to="/dashboard/user/custmizeorders"
+            className="list-group-item list-group-item-action"
+          >
+            Custmized order
+          </NavLink>
         </div>
       </div>
     </>
