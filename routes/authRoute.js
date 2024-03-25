@@ -1,8 +1,10 @@
 import express from "express";
 import JWT from "jsonwebtoken";
 import {
+  bulkorderStatusController,
   forgotPasswordController,
   getAllOrdersController,
+  getAllbulkOrdersController,
   getOrdersController,
   getallUserController,
   loginController,
@@ -51,7 +53,16 @@ router.get("/orders", requireSignIn, getOrdersController);
 //all orders
 router.get("/all-orders", requireSignIn, isAdmin, getAllOrdersController);
 
+//bulk orders
+router.get("/bulk-orders", requireSignIn, getAllbulkOrdersController);
+router.put(
+  "/bulkorder-status/:orderId",
+  requireSignIn,
+  isAdmin,
+  bulkorderStatusController
+);
 // order status update
+
 router.put(
   "/order-status/:orderId",
   requireSignIn,

@@ -2,6 +2,7 @@ import express from "express";
 import {
   brainTreePaymentController,
   braintreeTokenController,
+  bulkorderController,
   createProductController,
   deleteProductController,
   getProductController,
@@ -17,6 +18,7 @@ import {
 } from "../controllers/productController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import formidable from "express-formidable";
+import upload from "../multerconfig.js";
 
 const router = express.Router();
 
@@ -74,4 +76,12 @@ router.get("/braintree/token", braintreeTokenController);
 
 //payments
 router.post("/braintree/payment", requireSignIn, brainTreePaymentController);
+router.post(
+  "/bulkorder",
+  upload.fields([
+    { name: "tshirtimage", maxCount: 1 },
+    { name: "photo", maxCount: 1 },
+  ]),
+  bulkorderController
+);
 export default router;
