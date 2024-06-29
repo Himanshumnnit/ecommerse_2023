@@ -3,6 +3,7 @@
 
 Welcome to our E-commerce project, designed to provide you with a seamless shopping experience like never before. This platform offers a range of features tailored to meet your needs, including the ability to effortlessly order items and an innovative integration of AI technology for enhanced convenience.
 
+PPT LINK : https://1drv.ms/p/s!Ajh1vIRCp5GJiUHZdoN4B9JgN1nA?e=ctJc5Y
 
 ## Features
 
