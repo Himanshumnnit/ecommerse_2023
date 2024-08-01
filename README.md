@@ -5,6 +5,10 @@ Welcome to our E-commerce project, designed to provide you with a seamless shopp
 
 PPT LINK : https://1drv.ms/p/s!Ajh1vIRCp5GJiUHZdoN4B9JgN1nA?e=ctJc5Y
 
+## Project Architecture:
+
+![EComm Architecture](https://github.com/user-attachments/assets/585eabf9-414a-4b82-878e-ec0f5a07f98f)
+
 ## Features
 
 - Secure Access: Effortlessly log in or sign up with encrypted JWT authentication, ensuring a safe and seamless experience for both users and admins.
